@@ -1,0 +1,188 @@
+PROJECT REQUIREMENTS (TXT)
+
+Project Title:
+Advanced Time Series Forecasting with Deep Learning and Attention Mechanisms
+
+------------------------------------------------------------
+1) PROJECT OVERVIEW
+------------------------------------------------------------
+The project requires building a multivariate time series forecasting system using a deep learning Seq2Seq (Encoder–Decoder) architecture enhanced with a custom attention mechanism. The model must predict multiple future time steps (multi-step forecasting) from multiple correlated time series features.
+
+The project emphasizes:
+- Multivariate time-series preprocessing
+- Deep learning forecasting using Seq2Seq
+- Custom attention mechanism integration
+- Baseline model comparison
+- Attention weight visualization and interpretation
+- Proper evaluation using RMSE and MAE metrics
+
+------------------------------------------------------------
+2) DATASET REQUIREMENTS
+------------------------------------------------------------
+You must generate or acquire a complex multivariate time-series dataset.
+
+Minimum dataset constraints:
+- Minimum 5 correlated time series (5 features)
+- Minimum 1000 time steps (rows)
+- Dataset should contain realistic components:
+  - Trend
+  - Noise
+  - Seasonal patterns
+  - Correlation between features
+
+Recommended tools:
+- NumPy
+- Pandas
+
+Output:
+- Dataset must be saved as a CSV file for reproducibility.
+
+------------------------------------------------------------
+3) PREPROCESSING REQUIREMENTS
+------------------------------------------------------------
+The dataset must be preprocessed for deep learning forecasting.
+
+Required preprocessing steps:
+- Train/Validation/Test split
+- Scaling (StandardScaler or MinMaxScaler)
+- Sliding window conversion
+
+Windowing parameters:
+- Lookback window: past time steps used as input
+- Forecast horizon: future steps predicted
+
+The final dataset must be converted into:
+X = (batch, lookback, features)
+Y = (batch, horizon, features)
+
+------------------------------------------------------------
+4) MODEL REQUIREMENTS (SEQ2SEQ + ATTENTION)
+------------------------------------------------------------
+You must implement a Seq2Seq architecture.
+
+Encoder:
+- LSTM based
+- Accepts multivariate input sequences
+
+Decoder:
+- LSTM based
+- Generates multi-step outputs
+
+Attention Mechanism:
+- Must be custom implemented
+- Must be integrated into the decoder
+- Must compute attention weights over encoder outputs
+
+Recommended attention types:
+- Bahdanau Attention
+- Luong Attention
+- Multi-Head Self Attention
+
+Output of the model:
+- Predicted sequences for the forecast horizon
+- Attention weights for interpretability
+
+------------------------------------------------------------
+5) TRAINING PIPELINE REQUIREMENTS
+------------------------------------------------------------
+You must implement a complete training pipeline.
+
+Training pipeline must include:
+- DataLoader batching
+- Training loop
+- Validation loop
+- Loss function (MSE recommended)
+- Optimizer (Adam recommended)
+- Model checkpoint saving (best model)
+
+Hyperparameters to tune:
+- Hidden size
+- Learning rate
+- Batch size
+- Epochs
+- Dropout
+- Lookback window
+- Forecast horizon
+
+------------------------------------------------------------
+6) BASELINE MODEL REQUIREMENTS
+------------------------------------------------------------
+You must implement at least one baseline model for comparison.
+
+Baseline options:
+- Standard LSTM model (without attention)
+- XGBoost model using lag features
+- Simple RNN/GRU model
+
+The baseline must be trained and evaluated on the same dataset splits.
+
+------------------------------------------------------------
+7) EVALUATION REQUIREMENTS
+------------------------------------------------------------
+Evaluation must be performed using standard forecasting metrics:
+
+Required metrics:
+- RMSE (Root Mean Squared Error)
+- MAE (Mean Absolute Error)
+
+Evaluation must be done on the test set.
+
+You must provide a comparison between:
+- Seq2Seq + Attention model
+- Baseline model
+
+------------------------------------------------------------
+8) ATTENTION VISUALIZATION REQUIREMENTS
+------------------------------------------------------------
+You must visualize learned attention weights.
+
+Required outputs:
+- Attention heatmap plot
+- Explanation of what the attention weights show
+
+The analysis should describe:
+- Which time steps were most important
+- How attention changes across forecast steps
+- Interpretability of model decisions
+
+------------------------------------------------------------
+9) EXPECTED DELIVERABLES
+------------------------------------------------------------
+You must submit the following:
+
+1) Complete, documented Python code
+- Full implementation of Seq2Seq + Attention
+- Includes preprocessing, training, evaluation, visualization
+
+2) Text-based report
+- Dataset generation process
+- Model architecture details
+- Attention mechanism explanation
+- Hyperparameter tuning strategy
+
+3) Comparison summary (text format)
+- RMSE and MAE for both models
+
+4) Attention interpretation summary
+- Explanation of attention weights and feature importance
+
+------------------------------------------------------------
+10) SOFTWARE REQUIREMENTS
+------------------------------------------------------------
+Programming language:
+- Python
+
+Recommended libraries:
+- numpy
+- pandas
+- matplotlib
+- scikit-learn
+- torch
+- tqdm
+
+Recommended Python version:
+- Python 3.10 or 3.11 (best compatibility)
+
+------------------------------------------------------------
+END OF PROJECT REQUIREMENTS
+------------------------------------------------------------
